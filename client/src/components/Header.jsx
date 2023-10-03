@@ -20,8 +20,8 @@ function Header() {
         </ul>
         <div>
             <ul className="flex gap-4">
-                <li className="border-2 border-[#34987F] rounded-3xl py-2 px-4 bg-[#34987F] text-white"><Link to="/signin">SignIn</Link></li>
-                <li className="border-2 rounded-3xl py-2 px-4"><Link to="/signup">SignUp</Link> </li>
+                <li className="border-2 border-[#34987F] rounded-3xl md:py-2 py-1 px-4 bg-[#34987F] text-white"><Link to="/signin">SignIn</Link></li>
+                <li className="border-2 rounded-3xl md:py-2 py-1 px-4"><Link to="/signup">SignUp</Link> </li>
             </ul>
         </div>
       </div>
