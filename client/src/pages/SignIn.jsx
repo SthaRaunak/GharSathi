@@ -9,6 +9,7 @@ import {
   signInSuccess,
   signInFailure,
 } from "../redux/user/userSlice";
+import OAuth from "../components/OAuth";
 
 function SignIn() {
   // const [error, setError] = useState(null);
@@ -123,6 +124,7 @@ function SignIn() {
                       >
                         {loading ? "Loading... " : "Sign In"}
                       </button>
+                      <OAuth />
                       {error && (
                         <p className="text-red-500 mt-2  w-[400px]">{error}</p>
                       )}

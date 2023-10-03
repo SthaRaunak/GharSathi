@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import OAuth from "../components/OAuth";
 
 function SignUp() {
   const [error, setError] = useState(null);
@@ -50,7 +51,7 @@ function SignUp() {
   return (
     <section className="bg-slate-100">
       <div className="max-w-[1300px] mx-auto py-6 px-5 ">
-        <div className="flex justify-between shadow-xl rounded-3xl  h-[700px]">
+        <div className="flex justify-between shadow-xl rounded-3xl  h-[750px]">
           <div className="w-1/2 bg-[#F7F7F7] hidden md:block rounded-l-3xl ">
             <h2 className="text-2xl   px-7 py-5 pt-[60px] font-medium text-slate-800">
               Rooms for Rent <br /> Where Comfort Meets Convenience.
@@ -129,6 +130,7 @@ function SignUp() {
                       >
                         {loading ? "Loading... " : "Sign Up"}
                       </button>
+                      <OAuth />
                       {error && (
                         <p className="text-red-500 mt-2  w-[400px]">{error}</p>
                       )}
