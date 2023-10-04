@@ -1,7 +1,11 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 function Header() {
+  const { currentUser } = useSelector((state) => state.user);
+
   return (
     <>
       <header className="bg-white shadow">
@@ -26,16 +30,36 @@ function Header() {
           </ul>
           <div>
             <ul className="flex gap-4">
-              <Link to="/signin">
-                <li className="border-2 border-[#34987F] rounded-3xl md:py-2 py-1 px-4 bg-[#34987F] text-white">
-                  SignIn
-                </li>
-              </Link>
-              <Link to="/signup">
-                <li className="border-2 rounded-3xl md:py-2 py-1 px-4">
-                  SignUp{" "}
-                </li>
-              </Link>
+              {!currentUser ? (
+                <>
+                  <Link to="/signin">
+                    <li className="border-2 border-[#34987F] rounded-3xl md:py-2 py-1 px-4 bg-[#34987F] text-white">
+                      SignIn
+                    </li>
+                  </Link>
+                  <Link to="/signup">
+                    <li className="border-2 rounded-3xl md:py-2 py-1 px-4">
+                      SignUp{" "}
+                    </li>
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <ul className="flex items-center gap-2">
+                    <li className="border-2 rounded-3xl md:py-2 py-1 px-4 cursor-pointer">
+                      Log Out
+                    </li>
+
+                    <Link to="/profile">
+                      <img
+                        src={currentUser.avatar}
+                        alt=""
+                        className="border-2 w-[43px] h-[42px] rounded-full object-cover cursor-pointer"
+                      />
+                    </Link>
+                  </ul>
+                </>
+              )}
             </ul>
           </div>
         </div>
